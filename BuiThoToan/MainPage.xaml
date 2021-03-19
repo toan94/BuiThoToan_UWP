@@ -1,0 +1,45 @@
+﻿<Page
+    x:Class="BuiThoToan.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BuiThoToan"
+    xmlns:data="using:BuiThoToan.Models"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"    >
+
+    <StackPanel Padding="10">
+        <StackPanel Orientation="Vertical">
+            <TextBlock Text="Add Contact"/>
+            <TextBlock Text="Name" />
+            <TextBox x:Name="name"  />
+            
+            <TextBlock Text="PhoneNumber" />
+            <TextBox x:Name="phone"  />
+            <TextBlock x:Name="message" FontSize="30" Text=""/>
+            <Button Content="add Contact" x:Name="add" Click="addBtn_Click" Margin="10"></Button>
+            <Button Content="Show Contact" x:Name="show" Click="showBtn_Click" Margin="10"></Button>
+            <Button Content="go to search" x:Name="search" Click="searchBtn_Click" Margin="10"></Button>
+        </StackPanel>
+
+        <ListView Grid.Row="1" Name="ContactGrid" ItemsSource="{x:Bind ContactList}">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="data:Contact">
+                    
+                       
+
+                        <StackPanel Grid.Row="0" Background="White" Orientation="Horizontal">
+                            <TextBlock Text="{x:Bind ContactName}" FontSize="10" Foreground="Brown" Margin="0,0,10,0"/>
+                            <TextBlock Text="{x:Bind ContactPhone}" FontSize="10" Foreground="Brown"/>
+                            
+                        </StackPanel>
+                    
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackPanel>
+    
+    
+    
+</Page>
